@@ -49,6 +49,6 @@ The figure below illustrates this behavior using an example.
 
 **BOLD**
 :+1:
-#Header
+# Header
 - [x]
 - [ ]
