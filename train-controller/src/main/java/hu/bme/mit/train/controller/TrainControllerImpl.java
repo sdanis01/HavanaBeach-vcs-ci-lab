@@ -13,10 +13,14 @@ public class TrainControllerImpl implements TrainController {
 		public void run(){
 			while(!stopped){
 				followSpeed();
-				Thread.sleep(1000);
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 		}
-	}
+	};
 
 	public TrainControllerImpl(){
 		update.start();
@@ -24,6 +28,10 @@ public class TrainControllerImpl implements TrainController {
 
 	public void stopController(){
 		stopped = true;
+	}
+
+	public void startController(){
+		stopped = false;
 	}
 
 	@Override
