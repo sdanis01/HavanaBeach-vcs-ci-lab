@@ -11,16 +11,15 @@ public class TrainControllerImpl implements TrainController {
 
 	private Thread update = new Thread(){
 		@Override
-		public void run(){
+		public void run() {
 			try {
-				while(!stopped){
+				while (!stopped) {
 					followSpeed();
 					Thread.sleep(1000);
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-
 		}
 	};
 
