@@ -8,6 +8,7 @@ public class TrainControllerImpl implements TrainController {
 	private int referenceSpeed = 0;
 	private int speedLimit = 0;
 	private Thread thread;
+	private boolean stop = false;
 
 	/*
 	Setting the reference speed of the train works in the following way.
@@ -18,7 +19,7 @@ public class TrainControllerImpl implements TrainController {
 	public TrainControllerIMpl(){
 		Thread t = new Thread(){
 			public void run() {
-				while (true) {
+				while (!stop) {
 					try {
 						followSpeed();
 						thread.sleep(1000);
@@ -30,6 +31,9 @@ public class TrainControllerImpl implements TrainController {
 		};
 		t.start();
 	}
+
+	public void stop(){stop = true;}
+	public void start(){stop = false;}
 
 	@Override
 	public void followSpeed() {
