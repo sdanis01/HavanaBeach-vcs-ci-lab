@@ -10,13 +10,14 @@ public class TrainControllerImpl implements TrainController {
 	private boolean stopped = false;
 
 	private Thread update = new Thread(){
+		@Override
 		public void run(){
 			while(!stopped){
 				followSpeed();
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					LOGGER.log(Level.WARN, "Interrupted!", e);
 				}
 			}
 		}
