@@ -1,5 +1,18 @@
-subprojects {
+plugins { id "org.sonarqube" version "2.6.2" apply false}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "ftsrg-retelab_HavanaBeach-vcs-ci-lab"
+    property "sonar.organization", "ftsrg-retelab"
+    property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.login", "22d387548c8ace8deae85c655dc8facb6c9c4f96"
+    
+  }
+}
+
+subprojects { subproject ->
   apply plugin: 'java'
+  apply plugin: 'org.sonarqube'
 
   repositories {
     jcenter()
@@ -8,3 +21,6 @@ subprojects {
   dependencies {
     implementation("com.google.guava:guava:28.2-jre")
   }
+
+}
+

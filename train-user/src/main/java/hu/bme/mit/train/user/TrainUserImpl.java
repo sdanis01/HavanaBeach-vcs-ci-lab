@@ -7,9 +7,21 @@ public class TrainUserImpl implements TrainUser {
 
 	private TrainController controller;
 	private int joystickPosition;
+	private boolean alarmState;
 
 	public TrainUserImpl(TrainController controller) {
+		this.alarmState = false;
 		this.controller = controller;
+	}
+
+	@Override
+	public boolean getAlarmState(){
+		return this.alarmState;
+	}
+
+	@Override
+	public void setAlarmState(boolean alarmState){
+		this.alarmState = alarmState;
 	}
 
 	@Override
