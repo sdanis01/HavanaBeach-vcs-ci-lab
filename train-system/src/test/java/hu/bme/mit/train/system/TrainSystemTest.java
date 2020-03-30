@@ -1,4 +1,4 @@
-package hu.bme.mit.train.system.test;
+package hu.bme.mit.train.system;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,7 +26,7 @@ public class TrainSystemTest {
 	}
 	
 	@Test
-	public void test1() {
+	public void OverridingJoystickPosition_IncreasesReferenceSpeed() {
 		sensor.overrideSpeedLimit(10);
 
 		Assert.assertEquals(0, controller.getReferenceSpeed());
@@ -42,13 +42,19 @@ public class TrainSystemTest {
 	}
 
 	@Test
-	public void test2() {
+	public void OverridingJoystickPositionToNegative_SetsReferenceSpeedToZero() {
 		user.overrideJoystickPosition(4);
 		controller.followSpeed();
-		user.overrideJoystickPosition(-5);
+		user.overrideJoystickPosition(-10);
 		controller.followSpeed();
 		Assert.assertEquals(0, controller.getReferenceSpeed());
 	}
 
+	@Test
+	public void TestGetReferenceSpeed() {
+		user.overrideJoystickPosition(4);
+		controller.followSpeed();
+		Assert.assertEquals(4, controller.getReferenceSpeed());
+	}
 	
 }
