@@ -1,7 +1,13 @@
-subprojects {
+plugins { id "org.sonarqube" version "2.6.2" apply false}
+subprojects { subproject ->
   apply plugin: 'java'
+  apply plugin: 'org.sonarqube'
 
   repositories {
     jcenter()
+  }
+
+  dependencies {
+    implementation("com.google.guava:guava:28.2-jre")
   }
 }
