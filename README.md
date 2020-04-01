@@ -1,5 +1,7 @@
 # Train Speed Controller
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f7488deff36b4fbabaaf7a734be5731f)](https://app.codacy.com/manual/sdanis01/HavanaBeach-vcs-ci-lab?utm_source=github.com&utm_medium=referral&utm_content=sdanis01/HavanaBeach-vcs-ci-lab&utm_campaign=Badge_Grade_Dashboard)
+
 This is a sample application for the verification laboratory.
 
 ## Getting started
